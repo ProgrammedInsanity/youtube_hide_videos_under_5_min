@@ -226,14 +226,8 @@
     // ===========================================================
 
 	const run = debounce((mutations) => {
-
-		// don't react if only *OUR* own buttons changed state
-		// to avoid running an endless loop
-
-		if (mutations && mutations.length === 1) { return; }
-
-
-
+		if (!mutations) { return; }
+		
 		logDebug('Running check for too short videos');
 		updateClassOnTooShortItems();
 	}, 250);
